@@ -1,0 +1,3 @@
+using Microsoft.AspNetCore.Mvc; using PECB.SupportDesk.Api.Services;
+namespace PECB.SupportDesk.Api.Middleware;
+public sealed class ExceptionHandlingMiddleware(RequestDelegate next,ILogger<ExceptionHandlingMiddleware> logger){public async Task Invoke(HttpContext c){try{await next(c);}catch(TicketWorkflowException ex){await Write(c,422,ex.Code,ex.Message);}catch(Exception ex){logger.LogError(ex,"Unhandled request failure");await Write(c,500,"server_error","An unexpected error occurred.");}}private static async Task Write(HttpContext c,int status,string code,string detail){c.Response.StatusCode=status;await c.Response.WriteAsJsonAsync(new ProblemDetails{Status=status,Title=code,Detail=detail,Extensions={{"traceId",c.TraceIdentifier}}});}}

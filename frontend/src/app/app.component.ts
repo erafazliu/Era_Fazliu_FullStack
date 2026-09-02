@@ -1,0 +1,2 @@
+import { Component } from '@angular/core'; import { RouterLink,RouterOutlet } from '@angular/router';
+@Component({selector:'app-root',standalone:true,imports:[RouterLink,RouterOutlet],template:`<header><a routerLink="/" class="brand"><img src="pecb-logo.png" alt="PECB"><span></span><strong>Support Desk</strong></a></header><main><router-outlet/></main><footer>PECB Support Operations <span>•</span> Internal workspace</footer>`}) export class AppComponent{}

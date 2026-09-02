@@ -1,0 +1,7 @@
+namespace PECB.SupportDesk.Api.Models;
+public enum Department { Technical, Billing, General }
+public enum TicketPriority { Low, Normal, High, Critical }
+public enum TicketStatus { New, InProgress, Resolved, Closed }
+public sealed class Agent { public int Id { get; set; } public required string FullName { get; set; } public required string Email { get; set; } public Department Department { get; set; } public bool Active { get; set; } public ICollection<Ticket> Tickets { get; set; } = []; }
+public sealed class Ticket { public int Id { get; set; } public required string Reference { get; set; } public required string Title { get; set; } public required string Description { get; set; } public required string CustomerName { get; set; } public required string CustomerEmail { get; set; } public TicketPriority Priority { get; set; } public TicketStatus Status { get; set; } = TicketStatus.New; public int? AssignedAgentId { get; set; } public Agent? AssignedAgent { get; set; } public DateTimeOffset CreatedDate { get; set; } public DateTimeOffset LastModifiedDate { get; set; } public DateTimeOffset? ResolvedDate { get; set; } public DateTimeOffset? ClosedDate { get; set; } public DateTimeOffset DueDate { get; set; } public ICollection<TicketComment> Comments { get; set; } = []; }
+public sealed class TicketComment { public int Id { get; set; } public int TicketId { get; set; } public Ticket Ticket { get; set; } = null!; public required string AuthorName { get; set; } public required string Body { get; set; } public DateTimeOffset CreatedDate { get; set; } }

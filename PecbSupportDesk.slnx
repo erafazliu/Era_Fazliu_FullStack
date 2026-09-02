@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/backend/">
+    <Project Path="backend/PECB.SupportDesk.Api/PECB.SupportDesk.Api.csproj" />
+    <Project Path="backend/PECB.SupportDesk.Tests/PECB.SupportDesk.Tests.csproj" />
+  </Folder>
+</Solution>
