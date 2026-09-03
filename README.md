@@ -2,6 +2,10 @@
 
 A professional internal support workflow application built with ASP.NET Core, Entity Framework Core, Angular, and SQL Server. The visual system uses the PECB logo red (`#ad1927`) with neutral business surfaces and accessible status cues.
 
+![Support Desk](Screenshots/Support_Desk.png)
+![Create Tickets](Screenshots/Create_Ticket.png)
+![Ticket Details](Screenshots/Ticket_Details.png)
+
 ## Run locally
 
 Prerequisites: .NET 10 SDK, Node.js 20+, and SQL Server LocalDB (Windows) or Docker.
